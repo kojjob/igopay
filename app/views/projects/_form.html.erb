@@ -1,0 +1,42 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.file_field :image_url, multiple: true, direct_upload: true %>
+  </div>
+
+  
+  <div class="field">
+  <%= form.label :url %>
+  <%= form.text_field :url %>
+  </div>
+  
+  <div class="field">
+  <%= form.label :github %>
+  <%= form.text_field :github %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_area :details, cols: 30, rows: 10 %>
+  </div>
+  <div class="actions field">
+    <%= form.submit %>
+  </div>
+<% end %>
