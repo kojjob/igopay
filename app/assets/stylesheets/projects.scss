@@ -1,3 +1,11 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.main_projects {
+  .project_cards {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 4rem;
+    .project_card {
+     padding: 2rem;
+    }
+  }
+}

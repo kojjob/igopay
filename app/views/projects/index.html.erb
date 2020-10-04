@@ -1,35 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="main_projects container">
+  <p id="notice"><%= notice %></p>
 
-<h1 class="tac">Projects</h1>
+  <h1 class="tac">Projects</h1>
+<div class="project_cards">
+      <% @projects.each do |project| %>
+        <div class="project_card">
+        <%= project.image_url %>
+        <%= project.name %>
+          <%= truncate(project.details) %>
+          <%= project.url %>
+          <%= project.github %>
+          <div class="project_card-links">
+          <%= link_to 'Show', project %>
+          <%= link_to 'Edit', edit_project_path(project) %>
+          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+      <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image url</th>
-      <th>Details</th>
-      <th>Url</th>
-      <th>Github</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <br>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.image_url %></td>
-        <td><%= truncate(project.details) %></td>
-        <td><%= project.url %></td>
-        <td><%= project.github %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Project', new_project_path %>
+  <%= link_to 'New Project', new_project_path %>
+</div>
